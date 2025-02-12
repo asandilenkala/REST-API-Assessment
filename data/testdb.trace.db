@@ -1,0 +1,6 @@
+2025-01-15 16:10:38.939210+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "WASTE_CATEGORY" not found (this database is empty); SQL statement:
+insert into waste_category (description,name,id) values (?,?,default) [42104-232]
+2025-01-15 16:12:18.542508+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "WASTE_CATEGORY" not found (this database is empty); SQL statement:
+insert into waste_category (description,name,id) values (?,?,default) [42104-232]
