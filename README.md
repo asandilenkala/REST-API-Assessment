@@ -1,67 +1,128 @@
-# Enviro365 Waste Sorting Mobile Application REST API
+Waste Category Management API
 
-This repository contains the REST APIs for the Enviro365 Waste Sorting Mobile Application, built using Spring Boot and H2 in-memory database.
+This project provides an API to manage waste categories, with endpoints for creating, retrieving, updating, and deleting categories. It uses an H2 in-memory database for data storage and follows a layered architecture for handling requests.
+Features
 
-## Project Overview
-Enviro365 aims to promote efficient waste sorting through a mobile application that leverages a robust backend API for managing waste categories, user profiles, and sorting instructions.
+    Create, retrieve, update, and delete waste categories.
+    An H2 in-memory database is used to store waste category data.
+    Implements a clean architecture with separate components for controllers, services, and repositories.
 
-## Technologies Used
-- **Spring Boot**: Backend framework
-- **H2 Database**: In-memory database for testing and development
-- **Spring Data JPA**: Data persistence
-- **Spring Security**: Authentication and authorization
-- **Swagger**: API documentation
+Entities
+WasteCategory
 
-## Installation
-1. **Clone the repository:**
-   ```sh
-   git clone https://github.com/asandilenkala/REST-API-Assessment.git
-   ```
-2. **Navigate to the project directory:**
-   ```sh
-   cd com.enviro.assessment.grad001.asandilenkala
-   ```
-3. **Build the project:**
-   ```sh
-   ./mvnw clean install
-   ```
-4. **Run the application:**
-   ```sh
-   ./mvnw spring-boot:run
-   ```
+    Attributes:
+        id: (Integer, Primary Key) Unique identifier for each category.
+        name: (String) Name of the waste category.
+        description: (String) Detailed description of the waste category.
 
-## API Endpoints
-| Method | Endpoint                  | Description                     |
-|--------|---------------------------|---------------------------------|
-| GET    | /api/waste-categories     | Fetch all waste categories      |
-| POST   | /api/waste-categories     | Add a new waste category        |
-| GET    | /api/waste-categories/{id}| Fetch category by ID            |
-| PUT    | /api/waste-categories/{id}| Update category by ID           |
-| DELETE | /api/waste-categories/{id}| Delete category by ID           |
+Endpoints
+1. GET /api/categories
 
-## Database Configuration
-The application uses an H2 in-memory database. Access the H2 console at:
-```
-http://localhost:8080/h2-console
-```
-Use the following credentials:
-- **URL:** jdbc:h2:mem:testdb
-- **Username:** sa
-- **Password:**
+    Description: Retrieve a list of all waste categories.
+    Response: A list of waste categories.
+    ScreenShot: Screenshot 2025-01-15 at 16 47 58
 
-## API Documentation
-Swagger UI is available at:
-```
-http://localhost:8080/swagger-ui.html
-```
+2. POST /api/categories
+Description: Create a new waste category.
+Request Body:
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+{
+  "name": "Category Name",
+  "description": "Category Description"
+}
 
-## License
-This project is licensed under the MIT License.
+    Response: The created waste category.
+    ScreenShot: Screenshot 2025-01-15 at 16 47 47
 
----
+3. PUT /api/categories/{id}
+Description: Update an existing waste category.
+Request Body:
 
-_Developed by Asandile Nkala for the Enviro365 Waste Sorting Mobile Application._
+{
+  "name": "Updated Category Name",
+  "description": "Updated Category Description"
+}
 
+    Response: The updated waste category.
+    ScreenShot: Screenshot 2025-01-15 at 16 48 28
+
+4. DELETE /api/categories/{id}
+
+    Description: Delete a specific waste category by ID.
+    Response: Confirmation of the deletion.
+    ScreenShot: Screenshot 2025-01-15 at 16 49 06
+
+5. GET /api/categories/{id}
+
+    Description: Retrieve details of a specific waste category by ID.
+    Response: A single waste category.
+    ScreenShot: Screenshot 2025-01-15 at 16 48 19
+
+Components
+1. Controller
+
+    Maps API requests to service calls.
+    Handles input validation and formats responses.
+
+2. Service
+
+    Contains the business logic for managing waste categories.
+    Performs necessary operations like validation and logic processing.
+
+3. Repository
+
+    Interfaces with the H2 database to persist and retrieve data.
+    Provides methods to interact with the WasteCategory table in the database.
+
+4. Model
+
+    A JPA entity mapped to a database table.
+    The WasteCategory class represents a waste category in the system.
+
+5. Exception
+
+    Responsible for handling exceptions related to invalid input and illegal arguments within the application.
+    It provides custom responses with appropriate HTTP status codes.
+
+Database
+H2 In-Memory Database
+
+    Table: WasteCategory
+        Columns:
+            id: (Primary Key)
+            name: (String)
+            description: (String)
+
+Project Flow
+
+    The client sends a request to the controller.
+
+    The controller delegates the task to the service.
+
+    The service interacts with the repository to perform operations on the H2 database.
+
+    Data is returned to the client in response to the request.
+
+    Simple Diagram: Screenshot 2025-01-16 at 16 04 41
+
+How to Run
+
+Clone the repository:
+
+git clone https://github.com/asandilenkala/REST-API-Assessment.git
+
+Navigate to the project directory:
+
+cd com.enviro.assessment.grad001.asandilenkala
+
+Run the application:
+
+./mvnw spring-boot:run
+
+    The API will be available at http://localhost:8090.
+
+Technologies Used
+
+    Spring Boot
+    H2 In-Memory Database
+    Java 21
