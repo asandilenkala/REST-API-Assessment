@@ -20,9 +20,11 @@ Endpoints
 
     Description: Retrieve a list of all waste categories.
     Response: A list of waste categories.
-    ScreenShot: Screenshot 2025-01-15 at 16 47 58
+    ScreenShot:
 
-2. POST /api/categories
+    Screenshot 2025-01-15 at 16 47 58
+
+3. POST /api/categories
 Description: Create a new waste category.
 Request Body:
 
@@ -32,7 +34,9 @@ Request Body:
 }
 
     Response: The created waste category.
-    ScreenShot: Screenshot 2025-01-15 at 16 47 47
+    ScreenShot:
+    
+    Screenshot 2025-01-15 at 16 47 47
 
 3. PUT /api/categories/{id}
 Description: Update an existing waste category.
@@ -44,19 +48,25 @@ Request Body:
 }
 
     Response: The updated waste category.
-    ScreenShot: Screenshot 2025-01-15 at 16 48 28
+    ScreenShot:
+    
+    Screenshot 2025-01-15 at 16 48 28
 
 4. DELETE /api/categories/{id}
 
     Description: Delete a specific waste category by ID.
     Response: Confirmation of the deletion.
-    ScreenShot: Screenshot 2025-01-15 at 16 49 06
+    ScreenShot:
 
-5. GET /api/categories/{id}
+    Screenshot 2025-01-15 at 16 49 06
+
+6. GET /api/categories/{id}
 
     Description: Retrieve details of a specific waste category by ID.
     Response: A single waste category.
-    ScreenShot: Screenshot 2025-01-15 at 16 48 19
+    ScreenShot:
+
+    Screenshot 2025-01-15 at 16 48 19
 
 Components
 1. Controller
@@ -103,7 +113,9 @@ Project Flow
 
     Data is returned to the client in response to the request.
 
-    Simple Diagram: Screenshot 2025-01-16 at 16 04 41
+    Simple Diagram:
+    
+    Screenshot 2025-01-16 at 16 04 41
 
 How to Run
 
